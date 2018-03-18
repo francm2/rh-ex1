@@ -1,30 +1,28 @@
 /*
- * MF 031818 - original Javascript for remoteMathService exercise 1.
+ * MF 030818 - one possible solution for Javascript for remoteMathService exercise 1.
  */
-
 function remoteMathService(cb) {
   var one, two;
 
-  callOneService (function(err, num) {
-    one = num;
-  });
+  setTimeout(
+    callOneService (function(err, num) {
+      one = num;
+    }), 1000);
 
-  callTwoService(function(err, num) {
-    two = num;
-  });
+  setTimeout(
+    callTwoService (function(err, num) {
+      two = num;
+    }), 1500);
+
   return cb(undefined, one + two);
 }
 
 function callOneService(cb) {
-  setTimeout(function() {
-    return cb(undefined, 1);
-  }, 1000);
+  return cb(undefined, 1);
 }
 
 function callTwoService(cb) {
-  setTimeout(function() {
-    return cb(undefined, 2);
-  }, 1500);
+  return cb(undefined, 2);
 }
 
 remoteMathService(function(err, answer) {
