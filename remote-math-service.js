@@ -1,5 +1,7 @@
 /*
  * MF 030818 - one possible solution for Javascript for remoteMathService exercise 1.
+ * This works, but try the other method you thought of tonight. May need to fix tests
+ * as a result of any change here. Also may need to adjust tests for timeouts.
  */
 function remoteMathService(cb) {
   var one, two;
@@ -33,3 +35,9 @@ remoteMathService(function(err, answer) {
     console.log("correct");
   }
 });
+
+module.exports = {
+  remoteMathService: remoteMathService,
+  callOneService: callOneService,
+  callTwoService: callTwoService
+};
